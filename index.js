@@ -12,6 +12,12 @@ const DB_URL = 'mongodb+srv://zenbit:zenbit@cluster0.luqnens.mongodb.net/?retryW
 const app = express();
 app.use(cors({origin:true,credentials: true}));
 app.use(express.json());
+app.use((req, res, next) => {
+    res.append('Access-Control-Allow-Origin', ['*']);
+    res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.append('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+});
 
 app.get('/', async (req, res)=>{
     try {
