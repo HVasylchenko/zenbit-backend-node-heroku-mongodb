@@ -13,6 +13,15 @@ const app = express();
 app.use(cors({origin:true,credentials: true}));
 app.use(express.json());
 
+app.get('/', async (req, res)=>{
+    try {
+        res.status(200).json('сервер работает');
+        
+    } catch (error) {
+        res.status(500).json(error);        
+    }
+});
+
 app.post('/', async (req, res)=>{
     try {
         const {email, password} = req.body;
