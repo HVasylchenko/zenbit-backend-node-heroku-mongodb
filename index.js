@@ -2,8 +2,11 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import Post from "./Post.js";
+import dotenv from 'dotenv';
+dotenv.config();
 
-const PORT = process.env.PORT || 5000;
+
+const PORT = process.env.PORT || 80;
 const DB_URL = 'mongodb+srv://zenbit:zenbit@cluster0.luqnens.mongodb.net/?retryWrites=true&w=majority'
 
 const app = express();
